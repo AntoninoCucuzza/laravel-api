@@ -17,4 +17,20 @@ class ProjectController extends Controller
             'result' => Project::with('type', 'technologies')->orderByDesc('id')->paginate(10)
         ]);
     }
+
+    public function types()
+    {
+        return response()->json([
+            'status' => 'success',
+            'result' => Type::with('projects')->orderByDesc('id')->paginate(10)
+        ]);
+    }
+
+    public function technologies()
+    {
+        return response()->json([
+            'status' => 'success',
+            'result' => Technology::with('projects')->orderByDesc('id')->paginate(10)
+        ]);
+    }
 }

@@ -98,6 +98,44 @@
                 </div>
 
                 <div class="mb-2">
+                    <div style="height:100px" class="row overflow-y-auto h">
+                        @forelse($technologies as $technology)
+                            @if ($technology->id % 2 == 0)
+                                <div class="col-6">
+                                    <input class="form-check-input @error('technologies') is-invalid @enderror"
+                                        type="checkbox" id="technologies{{ $technology->id }}" name="technologies[]"
+                                        aria-describedby="helpTechnology" value="{{ $technology->id }}"
+                                        {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+                                    <label class="form-check-label text-white"
+                                        for="technologies{{ $technology->id }}">{{ $technology->name }}</label>
+                                </div>
+                            @else
+                                <div class="col-6">
+                                    <input class="form-check-input @error('technologies') is-invalid @enderror"
+                                        type="checkbox" id="technologies{{ $technology->id }}" name="technologies[]"
+                                        aria-describedby="helpTechnology" value="{{ $technology->id }}"
+                                        {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+
+                                    <label class="form-check-label text-white"
+                                        for="technologies{{ $technology->id }}">{{ $technology->name }}</label>
+                                </div>
+                            @endif
+
+                        @empty
+                            no technologies available
+                        @endforelse
+                    </div>
+
+                    @if ($errors->get('technologies'))
+                        <label for="technologies" class="form-label">
+                            @foreach ($errors->get('technologies') as $error)
+                                <small class="text-danger">{{ $error }}</small>
+                            @endforeach
+                        </label>
+                    @endif
+                </div>
+
+                <div class="mb-2">
                     <label for="thumb" class="form-label mt-2">Thumb</label>
                     <input name="thumb" class="form-control  @error('thumb') is-invalid @enderror" type="file">
 

@@ -67,34 +67,6 @@
                     </select>
                 </div>
 
-
-                {{--                 <div class="col-6 mt-4">
-                    <label for="technologies" class="form-label text-white">Technologies</label>
-                    <select multiple class="form-select @error('technologies') is-invalid @enderror" name="technologies[]"
-                        id="technologies">
-
-                        <option disabled>Select technologies</option>
-                        <option value="">No technologies has bes used</option>
-
-                        @forelse($technologies as $technology)
-                            <option value=" {{ $technology->id }} "
-                                {{ in_array($technology->id, old('technologies', [])) ? 'selected' : '' }}>
-                                
-                            </option>
-
-                        @empty
-                        @endforelse
-                    </select>
-
-                    @if ($errors->get('technologies'))
-                        <label for="technologies" class="form-label">
-                            @foreach ($errors->get('technologies') as $error)
-                                <small class="text-danger">{{ $error }}</small>
-                            @endforeach
-                        </label>
-                    @endif
-
-                </div> --}}
                 <div class="col-6 mt-4">
                     <div style="height:100px" class="row overflow-y-auto h">
                         @forelse($technologies as $technology)

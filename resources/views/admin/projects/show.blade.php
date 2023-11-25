@@ -84,7 +84,7 @@
 
                 <div class="d-flex gap-2">
                     <span>Technologies: </span>
-                    <ul class="d-flex gap-1 list-unstyled">
+                    <ul class="d-flex flex-wrap gap-1 list-unstyled">
                         @forelse ($project->technologies as $technology)
                             <li class="badge bg-dark p-2">
                                 <i class="fas fa-tag fa-xs fa-fw"></i>

@@ -34,11 +34,11 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function latest_projects()
+    public function latest()
     {
         return response()->json([
             'status' => 'success',
-            'projects' => Project::with(['type', 'technologies'])->orderByDesc('id')->take(3)->get()
+            'projects' => Project::with(['type', 'technologies'])->orderByDesc('id')->take(4)->get()
         ]);
     }
 

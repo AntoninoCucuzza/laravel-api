@@ -21,6 +21,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+/* 
+Route::get('/mailable', function () {
+    $lead = App\Models\Lead::find(1);
+
+    return new App\Mail\NewLeadEmailMD($lead);
+}); */
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');

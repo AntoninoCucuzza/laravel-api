@@ -20,7 +20,6 @@ class LeadController extends Controller
             'message' => 'required|min:3',
             'email' => 'required|email',
             'phone' => 'nullable|numeric',
-
         ]);
 
         if ($validator->fails()) {
@@ -32,8 +31,7 @@ class LeadController extends Controller
 
         $lead = Lead::create($request->all());
 
-        Mail::to('admin@mailtrap.io')->send(new NewLeadEmailMD($lead));
-        /* Mail::to($lead->email)->send(new NewLeadEmail($lead)); */
+        Mail::to('cucuzza.antonino@hotmail.com')->send(new NewLeadEmailMD($lead));
 
 
         return response()->json([
